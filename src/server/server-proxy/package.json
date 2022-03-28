@@ -1,0 +1,14 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "A sample project",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/server/server-proxy/main.js"
+  },
+  "author": "Casper Bartholomäus",
+  "license": "ISC",
+  "dependencies": {
+    "http-proxy-middleware": "^2.0.4"
+  }
+}
