@@ -2,15 +2,14 @@
   "name": "project",
   "version": "1.0.0",
   "description": "A sample project",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/server/server-auth/main.js"
+    "start:dev": "set NODE_ENV=dev && node server.js "
   },
   "author": "Casper Bartholomäus",
   "license": "ISC",
   "dependencies": {
-    "express-session": "^1.17.2",
-    "passport": "^0.5.2",
-    "passport-google-oauth2": "^0.2.0"
+    "body-parser": "^1.19.2",
+    "jsonwebtoken": "^8.5.1"
   }
 }

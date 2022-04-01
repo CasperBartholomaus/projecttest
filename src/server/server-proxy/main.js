@@ -17,7 +17,7 @@ const log = Logger.getLogger(serverName);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 require("./router")(app, log);
-
+require('dotenv').config({ path: `.env.proxy` });
 //~~~~~~~~~~~~~~~~~~~~~~~~~ SERVER CONFIGURATION~~~~~~~~~~~~~~~~~~~~~//
 const port = 3002;
 const options = {
