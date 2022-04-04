@@ -3,7 +3,7 @@ module.exports = function (app, log) {
         log.error(err.message ? err.message : err);
         res.send({
             server: 'server-proxy',
-            status: "test",
+            status: "error",
             msg: err.message ? err.message : err,
         });
         next();

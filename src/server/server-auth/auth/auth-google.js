@@ -6,7 +6,7 @@ const getGoogleAuthURL = () => {
     const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
     const options = {
         redirect_uri: `https://localhost:3002/auth/google/callback`,
-        client_id: process.env.client_id,
+        client_id: process.env.google_client_id,
         access_type: 'offline',
         response_type: 'code',
         prompt: 'consent',
@@ -16,7 +16,7 @@ const getGoogleAuthURL = () => {
         ].join(' '),
     };
     return `${rootUrl}?${new URLSearchParams(options).toString()}`;
-}
+};
 
 const getGoogleToken = async (code) => {
     let result;
@@ -24,7 +24,7 @@ const getGoogleToken = async (code) => {
     const values = {
         code,
         client_id: process.env.client_id,
-        client_secret: process.env.client_secret,
+        client_secret: process.env.google_client_secret,
         redirect_uri: `https://localhost:3002/auth/google/callback`,
         grant_type: "authorization_code",
     };
@@ -61,13 +61,13 @@ const signGoogleUser = async (code) => {
         __log.error(`Error occured signGoogleUser(): ${err}`);
     }
     
-    return jwt.sign(userProfile, process.env.JWT_SECRET);
+    return jwt.sign(userProfile, process.env.GOOGLE_JWT_SECRET);
 }
 
 const verifyGoogleUser = async (token) => {
     let result;
     try {
-        result = jwt.verify(token, process.env.JWT_SECRET);
+        result = jwt.verify(token, process.env.GOOGLE_JWT_SECRET);
     } catch (err) {
         __log.error(`Error occured verifyGoogleUser(): ${err}`);
     }
